@@ -1,0 +1,19 @@
+# application.yml
+# Server配置
+server:
+  servlet:
+    context-path: /
+# Spring配置
+spring:
+  application:
+    name: DeveloperMonkeyMngService
+  profiles:
+    active: prod
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
+# 自定义配置
+log:
+  path: /opt/cloud/${spring.application.name}/logs

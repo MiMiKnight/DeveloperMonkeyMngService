@@ -1,0 +1,4 @@
+# application-prod.yml
+server:
+  address: monkey.mng.developer.yhm.cn
+  port: 8443
