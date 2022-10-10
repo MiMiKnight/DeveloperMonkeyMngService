@@ -3,7 +3,7 @@
     <!--项目名称-->
     <springProperty scope="context" name="app_name" source="spring.application.name"/>
     <!--日志文件夹位置-->
-    <springProperty scope="context" name="log.path" source="log.path"/>
+    <property name="log.path" value="/opt/cloud/DeveloperMonkeyMngService/logs" />
     <!--默认编码-->
     <property name="log.charset" value="UTF-8"/>
     <!--日志打印格式正则-->
@@ -13,9 +13,9 @@
     <property name="log.pattern.api"
               value="%date{yyyy-MM-dd HH:mm:ss.SSS,UTC}.UTC %-5level [PID:${PID}] [Thread:%thread] [TraceID:%X{TRACE_ID}] : %msg%n"/>
     <!--日志最大保留天数-->
-    <property name="log.maxHistory" value="30"/>
+    <property name="log.maxHistory" value="15"/>
     <!--单日志文件最大文件大小-->
-    <property name="log.maxFileSize" value="100MB"/>
+    <property name="log.maxFileSize" value="10MB"/>
     <!--总日志文件最大大小-->
     <property name="log.totalSizeCap" value="10GB"/>
 

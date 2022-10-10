@@ -14,6 +14,3 @@ spring:
   web:
     resources:
       add-mappings: false
-# 自定义配置
-log:
-  path: /opt/cloud/${spring.application.name}/logs

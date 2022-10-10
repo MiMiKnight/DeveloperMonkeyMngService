@@ -11,8 +11,8 @@ import lombok.Setter;
  * @author victor2015yhm@gmail.com
  * @since 2022-09-04 22:34:45
  */
+@Builder
 @Getter
 @Setter
-@Builder
 public class AuditContentResponse extends SuccessResponse {
 }

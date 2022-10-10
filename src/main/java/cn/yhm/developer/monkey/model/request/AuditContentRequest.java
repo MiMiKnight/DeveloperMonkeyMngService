@@ -24,27 +24,11 @@ import javax.validation.constraints.NotNull;
 public class AuditContentRequest implements GatewayRequest {
 
     /**
-     * 用户名
-     */
-    @NotBlank(message = "The parameter can not be null or empty")
-    @Length(min = 8, max = 64, message = "The parameter of length is out of range")
-    @JsonProperty(value = "username", index = 1, access = JsonProperty.Access.WRITE_ONLY)
-    private String username;
-
-    /**
-     * 年龄
-     */
-    @Min(value = 1, message = "The parameter should be not less than 1")
-    @Max(value = 500, message = "The parameter should be not more than 500")
-    @JsonProperty(value = "age", index = 2, access = JsonProperty.Access.WRITE_ONLY)
-    private Integer age;
-
-    /**
      * 审核时间
      */
     @NotNull(message = "The parameter can not be null or empty")
     @DateTimeFormatValidate(message = "日期参数非法")
-    @JsonProperty(value = "audit_time", index = 3, access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(value = "audit_time", index = 1, access = JsonProperty.Access.WRITE_ONLY)
     private String auditTime;
 
     /**
@@ -55,6 +39,6 @@ public class AuditContentRequest implements GatewayRequest {
      */
     @NotNull(message = "The parameter can not be null")
     @EnumerateIntegerValidate(value = {1, 2, 3}, message = "The parameter of value is out of range")
-    @JsonProperty(value = "audit_result", index = 4, access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(value = "audit_result", index = 2, access = JsonProperty.Access.WRITE_ONLY)
     private Integer auditResult;
 }
