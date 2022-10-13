@@ -128,7 +128,27 @@
         </dependency>
     </dependencies>
 
+    <!--build-->
     <build>
+        <!-- maven-resources-plugin插件会读取如下的resources配置，来完成文件的copy工作 -->
+        <resources>
+            <!--把src/main/java下指定文件拷贝到classes类路径下-->
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <!--把src/main/resource下指定文件拷贝到classes类路径下-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.yml</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <!-- spring-boot-maven-plugin -->
             <plugin>

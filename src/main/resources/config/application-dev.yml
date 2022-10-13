@@ -1,13 +1,12 @@
 # application-dev.yml
 # Server配置
 server:
-  address:
-    - 127.0.0.1
-    - monkey-dev.mng.developer.yhm.cn
+  address: 127.0.0.1
   port: 8443
 # Spring配置
 spring:
   datasource:
+    type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://127.0.0.1:3306/db_monkey?useUnicode=true&characterEncoding=UTF8&serverTimezone=UTC&useSSL=false&allowMultiQueries=true
     username: root
@@ -27,7 +26,6 @@ spring:
       auto-commit: true
       # 数据库连接超时时间,默认30秒，即30000毫秒
       connection-timeout: 30000
-    type: com.zaxxer.hikari.HikariDataSource
 # MyBatis配置
 mybatis-plus:
   mapper-locations: classpath:mapper/**/*Mapper.xml

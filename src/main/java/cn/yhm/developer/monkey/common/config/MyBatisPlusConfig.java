@@ -5,22 +5,17 @@ import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.BlockAttackInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.annotation.Resource;
-import javax.sql.DataSource;
-
 /**
  * MyBatis-Plus配置类
  * <p>
- * MapperScan mapper类扫描
- * <p>
  * EnableTransactionManagement 开启事务支持
+ * <p>
+ * MapperScan mapper类扫描
  *
  * @author victor2015yhm@gmail.com
  * @since 2022-10-07 19:33:18
@@ -41,5 +36,4 @@ public class MyBatisPlusConfig {
         interceptor.addInnerInterceptor(new BlockAttackInnerInterceptor());
         return interceptor;
     }
-
 }
