@@ -1,10 +1,8 @@
 package cn.yhm.developer.monkey.model.response;
 
-import cn.yhm.developer.ecology.constant.DateTimeFormatPattern;
-import cn.yhm.developer.ecology.constant.TimeZoneGMT;
+import cn.yhm.developer.ecology.common.constant.DateTimeFormatPattern;
+import cn.yhm.developer.ecology.common.constant.TimeZoneGMT;
 import cn.yhm.developer.ecology.model.response.GatewayResponse;
-import cn.yhm.developer.ecology.model.response.SuccessResponse;
-import cn.yhm.developer.monkey.model.entity.ContentEntity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;

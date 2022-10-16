@@ -1,6 +1,6 @@
 package cn.yhm.developer.monkey.common.constant;
 
-import cn.yhm.developer.ecology.constant.EcologyExceptionCode;
+import cn.yhm.developer.ecology.common.constant.EcologyExceptionCode;
 
 /**
  * 异常代码

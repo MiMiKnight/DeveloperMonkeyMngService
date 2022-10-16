@@ -1,7 +1,7 @@
 package cn.yhm.developer.monkey.rest.controller;
 
 import cn.yhm.developer.ecology.annotation.ApiLog;
-import cn.yhm.developer.ecology.constant.ApiType;
+import cn.yhm.developer.ecology.common.enumeration.ApiType;
 import cn.yhm.developer.ecology.rest.controller.GatewayController;
 import cn.yhm.developer.monkey.model.request.AuditContentRequest;
 import cn.yhm.developer.monkey.model.request.GetContentByIdRequest;

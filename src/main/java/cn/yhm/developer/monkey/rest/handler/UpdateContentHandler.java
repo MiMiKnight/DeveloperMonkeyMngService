@@ -25,7 +25,7 @@ import javax.annotation.Resource;
 public class UpdateContentHandler implements GatewayHandler<UpdateContentRequest, UpdateContentResponse> {
 
     private interface ExceptionMessage {
-        String MSG_001 = "The primary key is invalid and data cannot be queried.";
+        String MSG_001 = "The primary key is invalid";
     }
 
     @Resource
