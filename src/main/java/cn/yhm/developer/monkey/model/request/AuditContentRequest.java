@@ -28,7 +28,7 @@ public class AuditContentRequest implements GatewayRequest {
      */
     @NotNull(message = "The parameter can not be null or empty")
     @DateTimeFormatValidate(message = "日期参数非法")
-    @JsonProperty(value = "audit_time")
+    @JsonProperty(value = "audit_time", access = JsonProperty.Access.WRITE_ONLY)
     private String auditTime;
 
     /**
@@ -39,6 +39,6 @@ public class AuditContentRequest implements GatewayRequest {
      */
     @NotNull(message = "The parameter can not be null")
     @EnumerateIntegerValidate(value = {1, 2, 3}, message = "The parameter of value is out of range")
-    @JsonProperty(value = "audit_result")
+    @JsonProperty(value = "audit_result", access = JsonProperty.Access.WRITE_ONLY)
     private Integer auditResult;
 }

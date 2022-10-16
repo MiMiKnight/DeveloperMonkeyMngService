@@ -1,8 +1,9 @@
 package cn.yhm.developer.monkey;
 
+import cn.yhm.developer.ecology.core.App;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 /**
@@ -14,12 +15,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @Slf4j
 @SpringBootApplication(scanBasePackages = {"cn.yhm.developer.monkey", "cn.yhm.developer.ecology"})
 public class Application {
-
-    private static final String APP_NAME = "DeveloperMonkeyMngService";
-
     public static void main(String[] args) {
         // 启动项目
-        SpringApplication.run(Application.class, args);
-        log.info("The project " + APP_NAME + " started successfully.");
+        App.run(Application.class, args);
     }
 }

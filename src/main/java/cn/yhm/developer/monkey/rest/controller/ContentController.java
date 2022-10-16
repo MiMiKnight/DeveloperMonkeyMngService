@@ -1,22 +1,26 @@
 package cn.yhm.developer.monkey.rest.controller;
 
 import cn.yhm.developer.ecology.annotation.ApiLog;
-import cn.yhm.developer.ecology.constant.LogApiType;
+import cn.yhm.developer.ecology.constant.ApiType;
 import cn.yhm.developer.ecology.rest.controller.GatewayController;
 import cn.yhm.developer.monkey.model.request.AuditContentRequest;
 import cn.yhm.developer.monkey.model.request.GetContentByIdRequest;
+import cn.yhm.developer.monkey.model.request.SaveContentRequest;
+import cn.yhm.developer.monkey.model.request.UpdateContentRequest;
 import cn.yhm.developer.monkey.model.response.AuditContentResponse;
 import cn.yhm.developer.monkey.model.response.GetContentByIdResponse;
+import cn.yhm.developer.monkey.model.response.SaveContentResponse;
+import cn.yhm.developer.monkey.model.response.UpdateContentResponse;
 import cn.yhm.developer.monkey.rest.handler.AuditContentHandler;
 import cn.yhm.developer.monkey.rest.handler.GetContentByIdHandler;
+import cn.yhm.developer.monkey.rest.handler.SaveContentHandler;
+import cn.yhm.developer.monkey.rest.handler.UpdateContentHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -34,9 +38,27 @@ public class ContentController extends GatewayController {
      * 通过ID查询Content
      */
     @PostMapping(value = {"/get-content-by-id"})
-    @ApiLog(type = LogApiType.Query, anonymous = {""})
+    @ApiLog(type = ApiType.Query, anonymous = {""})
     public GetContentByIdResponse getContentById(@RequestBody @Validated GetContentByIdRequest request) throws Exception {
         return handle(request, GetContentByIdHandler.class);
+    }
+
+    /**
+     * 新增
+     */
+    @PostMapping(value = {"/save"})
+    @ApiLog(type = ApiType.Save, anonymous = {""})
+    public SaveContentResponse saveContent(@RequestBody @Validated SaveContentRequest request) throws Exception {
+        return handle(request, SaveContentHandler.class);
+    }
+
+    /**
+     * 更新
+     */
+    @PostMapping(value = {"/update"})
+    @ApiLog(type = ApiType.Update, anonymous = {""})
+    public UpdateContentResponse updateContent(@RequestBody @Validated UpdateContentRequest request) throws Exception {
+        return handle(request, UpdateContentHandler.class);
     }
 
     /**
@@ -46,7 +68,7 @@ public class ContentController extends GatewayController {
      * @return 响应
      */
     @PostMapping(value = {"/audit"})
-    @ApiLog(type = LogApiType.Add, anonymous = {""})
+    @ApiLog(type = ApiType.Save, anonymous = {""})
     public AuditContentResponse auditContent(@RequestBody @Validated AuditContentRequest request) throws Exception {
         return handle(request, AuditContentHandler.class);
     }
