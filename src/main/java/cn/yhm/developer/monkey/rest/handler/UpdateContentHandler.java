@@ -40,7 +40,9 @@ public class UpdateContentHandler implements GatewayHandler<UpdateContentRequest
             log.error(ExceptionMessage.MSG_001);
             throw new EcologyException(ExceptionCode.Service.Content.PRIMARY_KEY_IS_INVALID, ExceptionMessage.MSG_001);
         }
-        ContentEntity contentEntity = new ContentEntity().setId(id).setContent(content).setVersion(entity.getVersion() + 1);
+        ContentEntity contentEntity = new ContentEntity()
+                .setId(id).setContent(content)
+                .setVersion(entity.getVersion() + 1);
         contentService.updateById(contentEntity);
         return UpdateContentResponse.builder().build();
     }

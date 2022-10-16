@@ -5,6 +5,8 @@ import cn.yhm.developer.monkey.model.entity.ContentEntity;
 import cn.yhm.developer.monkey.model.request.GetContentByIdRequest;
 import cn.yhm.developer.monkey.model.response.GetContentByIdResponse;
 import cn.yhm.developer.monkey.service.ContentService;
+import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +19,7 @@ import javax.annotation.Resource;
  * @author victor2015yhm@gmail.com
  * @since 2022-10-11 07:30:45
  */
+@Slf4j
 @Transactional(rollbackFor = Exception.class)
 @Component
 public class GetContentByIdHandler implements GatewayHandler<GetContentByIdRequest, GetContentByIdResponse> {
@@ -28,6 +31,12 @@ public class GetContentByIdHandler implements GatewayHandler<GetContentByIdReque
     public GetContentByIdResponse handle(GetContentByIdRequest request) throws Exception {
         Long cid = request.getCid();
         ContentEntity content = contentService.getById(cid);
-        return GetContentByIdResponse.builder().id(content.getId()).content(content.getContent()).deleted(content.getDeleted()).createTime(content.getCreateTime()).updateTime(content.getUpdateTime()).build();
+        return GetContentByIdResponse.builder()
+                .id(content.getId())
+                .content(content.getContent())
+                .deleted(content.getDeleted())
+                .createTime(content.getCreateTime())
+                .updateTime(content.getUpdateTime())
+                .build();
     }
 }
