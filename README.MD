@@ -9,7 +9,7 @@
 
 ## 项目 VM Option参数
 > -server  
-> -Duser.timezone=UTC  
+> -Duser.timezone=GMT+00:00  
 > -Dfile.encoding=UTF-8  
 
 ## 待办事项
