@@ -37,7 +37,7 @@ public class ContentEntity implements Serializable {
      * 内容ID
      */
     @TableId(value = "id", type = IdType.ASSIGN_ID)
-    private Long id;
+    private String id;
 
     /**
      * 内容

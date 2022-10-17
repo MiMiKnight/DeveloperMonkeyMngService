@@ -23,7 +23,7 @@ public class UpdateContentRequest implements GatewayRequest {
      */
     @NotNull(message = "The parameter can not be null")
     @JsonProperty(value = "id", access = JsonProperty.Access.WRITE_ONLY)
-    private Long id;
+    private String id;
 
     /**
      * 内容

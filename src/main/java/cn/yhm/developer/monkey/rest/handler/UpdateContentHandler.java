@@ -34,15 +34,16 @@ public class UpdateContentHandler implements GatewayHandler<UpdateContentRequest
     @Override
     public UpdateContentResponse handle(UpdateContentRequest request) throws Exception {
         String content = request.getContent();
-        Long id = request.getId();
+        String id = request.getId();
         ContentEntity entity = contentService.getById(id);
         if (null == entity) {
             log.error(ExceptionMessage.MSG_001);
             throw new EcologyException(ExceptionCode.Service.Content.PRIMARY_KEY_IS_INVALID, ExceptionMessage.MSG_001);
         }
-        ContentEntity contentEntity = new ContentEntity()
-                .setId(id).setContent(content)
-                .setVersion(entity.getVersion() + 1);
+        ContentEntity contentEntity =
+                new ContentEntity().setId(id)
+                        .setContent(content)
+                        .setVersion(entity.getVersion() + 1);
         contentService.updateById(contentEntity);
         return UpdateContentResponse.builder().build();
     }

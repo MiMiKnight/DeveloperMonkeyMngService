@@ -26,8 +26,8 @@ public class GetContentByIdRequest implements GatewayRequest {
     /**
      * 主键ID
      */
-    @NotNull(message = "The parameter can not be null")
+    @NotBlank(message = "The parameter can not be null")
     @JsonProperty(value = "cid", access = JsonProperty.Access.WRITE_ONLY)
-    private Long cid;
+    private String cid;
 
 }
