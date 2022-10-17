@@ -34,20 +34,11 @@ public class GetContentsHandler implements GatewayHandler<GetContentsRequest, Ge
         long total = contentService.count();
         // 每页记录数
         Long pageSize = request.getPageSize();
-        // 实际页码
-        Long actualPageIndex = request.actualPageIndex(total);
-        // 总页数
-        Long pages = request.pages(total);
         // 分页偏移量
         Long offset = request.offset(total);
-        // 响应
-        GetContentsResponse response = new GetContentsResponse();
-        response.setTotal(total)
-                .setPageIndex(actualPageIndex)
-                .setPageSize(pageSize);
         // 如果总记录数为0
         if (total < 1L) {
-            return response;
+            return request.handleResponse(new GetContentsResponse(), total, null);
         }
         // 分页查询
         List<ContentEntity> results = contentService.getContentByPage(offset, pageSize);
@@ -62,8 +53,6 @@ public class GetContentsHandler implements GatewayHandler<GetContentsRequest, Ge
             vo.setUpdateTime(result.getUpdateTime());
             return vo;
         }).collect(Collectors.toList());
-        // 设置结果集
-        response.setResults(voResults);
-        return response;
+        return request.handleResponse(new GetContentsResponse(), total, voResults);
     }
 }
