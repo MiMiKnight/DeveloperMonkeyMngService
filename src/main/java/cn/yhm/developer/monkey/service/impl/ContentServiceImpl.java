@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 内Content服务类的实现类
@@ -22,4 +23,12 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, ContentEntity
     @Resource
     private ContentMapper contentMapper;
 
+
+    @Override
+    public List<ContentEntity> getContentByPage(Long offset, Long pageSize) {
+        if (null == offset || null == pageSize || pageSize < 1L) {
+            throw new IllegalArgumentException();
+        }
+        return contentMapper.getContentByPage(offset,pageSize);
+    }
 }

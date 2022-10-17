@@ -1,25 +1,25 @@
-package cn.yhm.developer.monkey.model.vo;
+package cn.yhm.developer.monkey.model.vo.response;
 
 import cn.yhm.developer.ecology.common.constant.DateTimeFormatPattern;
 import cn.yhm.developer.ecology.common.constant.TimeZoneGMT;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.util.Date;
 
 /**
- * ContentVO
+ * GetContentById Content出参VO
  *
  * @author victor2015yhm@gmail.com
  * @since 2022-10-17 07:11:54
  */
-@Builder
+@Accessors(chain = true)
 @Setter
 @Getter
-public class GetContentByIdContentVO {
+public class GetContentByIdContentRespVO {
 
     /**
      * 主键ID

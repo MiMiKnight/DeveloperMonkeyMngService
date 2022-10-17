@@ -19,4 +19,14 @@
         <result property="createTime" column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
     </resultMap>
 
+    <!--无条件分页查询-->
+    <select id="getContentByPage" resultMap="BaseResultMap">
+        SELECT
+        <include refid="AllColumns"/>
+        FROM t_monkey_content
+        WHERE deleted = 0
+        ORDER BY update_time DESC
+        LIMIT #{offset},#{pageSize}
+    </select>
+
 </mapper>

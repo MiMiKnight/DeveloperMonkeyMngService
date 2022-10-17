@@ -5,14 +5,17 @@ import cn.yhm.developer.ecology.common.enumeration.ApiType;
 import cn.yhm.developer.ecology.rest.controller.GatewayController;
 import cn.yhm.developer.monkey.model.request.AuditContentRequest;
 import cn.yhm.developer.monkey.model.request.GetContentByIdRequest;
+import cn.yhm.developer.monkey.model.request.GetContentsRequest;
 import cn.yhm.developer.monkey.model.request.SaveContentRequest;
 import cn.yhm.developer.monkey.model.request.UpdateContentRequest;
 import cn.yhm.developer.monkey.model.response.AuditContentResponse;
 import cn.yhm.developer.monkey.model.response.GetContentByIdResponse;
+import cn.yhm.developer.monkey.model.response.GetContentsResponse;
 import cn.yhm.developer.monkey.model.response.SaveContentResponse;
 import cn.yhm.developer.monkey.model.response.UpdateContentResponse;
 import cn.yhm.developer.monkey.rest.handler.AuditContentHandler;
 import cn.yhm.developer.monkey.rest.handler.GetContentByIdHandler;
+import cn.yhm.developer.monkey.rest.handler.GetContentsHandler;
 import cn.yhm.developer.monkey.rest.handler.SaveContentHandler;
 import cn.yhm.developer.monkey.rest.handler.UpdateContentHandler;
 import lombok.extern.slf4j.Slf4j;
@@ -41,6 +44,15 @@ public class ContentController extends GatewayController {
     @ApiLog(type = ApiType.Query, anonymous = {""})
     public GetContentByIdResponse getContentById(@RequestBody @Validated GetContentByIdRequest request) throws Exception {
         return handle(request, GetContentByIdHandler.class);
+    }
+
+    /**
+     * 无条件分页查询
+     */
+    @PostMapping(value = {"/get-contents"})
+    @ApiLog(type = ApiType.Query, anonymous = {""})
+    public GetContentsResponse getContentById(@RequestBody @Validated GetContentsRequest request) throws Exception {
+        return handle(request, GetContentsHandler.class);
     }
 
     /**

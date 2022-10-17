@@ -1,7 +1,7 @@
 package cn.yhm.developer.monkey.model.response;
 
 import cn.yhm.developer.ecology.model.response.ResultResponse;
-import cn.yhm.developer.monkey.model.vo.GetContentByIdContentVO;
+import cn.yhm.developer.monkey.model.vo.response.GetContentByIdContentRespVO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -15,6 +15,6 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @Getter
 @Setter
-public class GetContentByIdResponse extends ResultResponse<GetContentByIdContentVO> {
+public class GetContentByIdResponse extends ResultResponse<GetContentByIdContentRespVO> {
 
 }

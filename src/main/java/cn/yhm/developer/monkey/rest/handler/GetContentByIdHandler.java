@@ -4,7 +4,7 @@ import cn.yhm.developer.ecology.rest.handler.GatewayHandler;
 import cn.yhm.developer.monkey.model.entity.ContentEntity;
 import cn.yhm.developer.monkey.model.request.GetContentByIdRequest;
 import cn.yhm.developer.monkey.model.response.GetContentByIdResponse;
-import cn.yhm.developer.monkey.model.vo.GetContentByIdContentVO;
+import cn.yhm.developer.monkey.model.vo.response.GetContentByIdContentRespVO;
 import cn.yhm.developer.monkey.service.ContentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -31,7 +31,7 @@ public class GetContentByIdHandler implements GatewayHandler<GetContentByIdReque
     public GetContentByIdResponse handle(GetContentByIdRequest request) throws Exception {
         String cid = request.getCid();
         ContentEntity content = contentService.getById(cid);
-        GetContentByIdContentVO contentVO = null;
+        GetContentByIdContentRespVO contentVO = null;
         // 响应对象
         GetContentByIdResponse response = new GetContentByIdResponse();
         // 查询结果为空
@@ -40,15 +40,14 @@ public class GetContentByIdHandler implements GatewayHandler<GetContentByIdReque
             return response;
         }
         // 查询结果不为空
-        contentVO = GetContentByIdContentVO.builder()
-                .id(content.getId())
-                .content(content.getContent())
-                .deleted(content.getDeleted())
-                .version(content.getVersion())
-                .createTime(content.getCreateTime())
-                .updateTime(content.getUpdateTime())
-                .build();
-        response.setResult(contentVO);
+        GetContentByIdContentRespVO vo = new GetContentByIdContentRespVO();
+        vo.setId(content.getId())
+                .setContent(content.getContent())
+                .setDeleted(content.getDeleted())
+                .setVersion(content.getVersion())
+                .setCreateTime(content.getCreateTime())
+                .setUpdateTime(content.getUpdateTime());
+        response.setResult(vo);
         return response;
 
     }
